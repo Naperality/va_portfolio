@@ -38,29 +38,31 @@ export default function Home() {
             <path d="M45.3,-66.7C58.3,-56.4,67.6,-43,73.4,-28.9C79.2,-14.9,81.4,0,76.2,13.3C71.1,26.6,58.7,38.3,45.6,47.4C32.5,56.5,18.7,63.1,3.4,62.3C-11.9,61.5,-23.7,53.3,-35.6,44.4C-47.5,35.5,-59.6,25.9,-65.7,12.8C-71.8,-0.3,-71.9,-16.9,-66.1,-31.7C-60.3,-46.4,-48.6,-59.3,-34.6,-68.8C-20.5,-78.2,-10.3,-84.1,2.1,-87.1C14.5,-90.1,29,-90.2,45.3,-66.7Z" transform="translate(100 100)" />
           </svg>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <FadeInOnScroll>
+          <div className="w-40 sm:w-52 md:w-72 lg:w-96 mx-auto">
             <Image
               src="/pfp.jpg"
               alt="Rudicarm Visitacion-Gustillo"
               width={400}
               height={400}
-              className="rounded-full shadow-lg ring-4 ring-blue-100 object-cover"
+              className="rounded-full shadow-lg ring-4 ring-blue-100 object-cover w-full h-auto"
             />
-          </FadeInOnScroll>
+          </div>
+        </FadeInOnScroll>
           <div className="text-center md:text-left space-y-5">
             <FadeInOnScroll>
-              <h2 className="text-4xl md:text-5xl font-bold text-blue-800 leading-snug">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-800 leading-snug">
                 Rudicarm Visitacion-Gustillo
               </h2>
             </FadeInOnScroll>
             <FadeInOnScroll>
-              <h3 className="text-lg md:text-xl font-medium text-gray-600">
+              <h3 className="text-base sm:text-lg md:text-xl font-medium text-gray-600">
                 Virtual Bookkeeper & Accounting Specialist
               </h3>
             </FadeInOnScroll>
             <FadeInOnScroll>
-              <p className="italic text-gray-500">
+              <p className="italic text-gray-500 text-sm sm:text-base max-w-xl mx-auto md:mx-0">
                 “Helping businesses stay financially healthy with streamlined bookkeeping, payroll, and e-commerce accounting.”
               </p>
             </FadeInOnScroll>
