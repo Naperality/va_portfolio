@@ -2,9 +2,9 @@
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-md shadow-sm z-50 py-5 md:py-6">
-      <div className="max-w-6xl mx-auto px-4 flex justify-center">
-        <div className="flex gap-6 sm:gap-8 md:gap-10 text-gray-800 text-sm sm:text-base md:text-lg font-semibold tracking-wide">
+    <nav className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-md shadow-sm z-50 py-4 sm:py-5 md:py-6">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 flex justify-center">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-gray-800 text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide">
           {['About', 'Services', 'Portfolio', 'Contact'].map((item) => (
             <a
               key={item}
