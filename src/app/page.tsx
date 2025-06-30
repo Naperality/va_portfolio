@@ -33,9 +33,17 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="about" className="relative pt-28 min-h-screen flex flex-col md:flex-row items-center justify-center px-6 bg-blue-50 scroll-mt-28">
-        <div className="absolute -top-16 -left-16 w-[500px] h-[500px] z-0 opacity-20 pointer-events-none">
+        {/* Top Left Blob */}
+        <div className="absolute -top-10 -left-10 sm:-top-16 sm:-left-16 w-40 sm:w-56 md:w-72 lg:w-[400px] aspect-square z-0 opacity-20 pointer-events-none">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-blue-100">
-            <path d="M45.3,-66.7C58.3,-56.4,67.6,-43,73.4,-28.9C79.2,-14.9,81.4,0,76.2,13.3C71.1,26.6,58.7,38.3,45.6,47.4C32.5,56.5,18.7,63.1,3.4,62.3C-11.9,61.5,-23.7,53.3,-35.6,44.4C-47.5,35.5,-59.6,25.9,-65.7,12.8C-71.8,-0.3,-71.9,-16.9,-66.1,-31.7C-60.3,-46.4,-48.6,-59.3,-34.6,-68.8C-20.5,-78.2,-10.3,-84.1,2.1,-87.1C14.5,-90.1,29,-90.2,45.3,-66.7Z" transform="translate(100 100)" />
+            <path d="M45.3,-66.7C..." transform="translate(100 100)" />
+          </svg>
+        </div>
+
+        {/* Bottom Right Blob */}
+        <div className="absolute -bottom-10 -right-10 sm:-bottom-16 sm:-right-16 w-40 sm:w-56 md:w-72 lg:w-[400px] aspect-square z-0 opacity-20 pointer-events-none">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-yellow-100">
+            <path d="M45.3,-66.7C..." transform="translate(100 100)" />
           </svg>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
