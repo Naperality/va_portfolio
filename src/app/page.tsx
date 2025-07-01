@@ -32,35 +32,33 @@ export default function Home() {
     <main className="bg-white text-gray-800 scroll-smooth">
 
       {/* Hero Section */}
-      <section id="about" className="relative pt-28 min-h-screen flex flex-col md:flex-row items-center justify-center px-6 bg-blue-50 scroll-mt-28">
-        {/* Top Left Blob */}
-        <div className="absolute -top-10 -left-10 sm:-top-16 sm:-left-16 w-40 sm:w-56 md:w-72 lg:w-[400px] aspect-square z-0 opacity-20 pointer-events-none">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-blue-100">
-            <path d="M45.3,-66.7C..." transform="translate(100 100)" />
-          </svg>
-        </div>
+      <section
+        id="about"
+        className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 via-white to-yellow-50 scroll-mt-28"
+      >
+        {/* Decorative Circle Behind Profile */}
+        <div className="absolute top-20 left-5 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl z-0"></div>
+        <div className="absolute bottom-0 right-10 w-56 h-56 bg-yellow-100 rounded-full opacity-20 blur-2xl z-0"></div>
 
-        {/* Bottom Right Blob */}
-        <div className="absolute -bottom-10 -right-10 sm:-bottom-16 sm:-right-16 w-40 sm:w-56 md:w-72 lg:w-[400px] aspect-square z-0 opacity-20 pointer-events-none">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full fill-yellow-100">
-            <path d="M45.3,-66.7C..." transform="translate(100 100)" />
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <FadeInOnScroll>
-          <div className="w-40 sm:w-52 md:w-72 lg:w-96 mx-auto">
-            <Image
-              src="/pfp.jfif"
-              alt="Rudicarm Visitacion-Gustilo"
-              width={400}
-              height={400}
-              className="rounded-full shadow-lg ring-4 ring-blue-100 object-cover w-full h-auto"
-            />
-          </div>
-        </FadeInOnScroll>
+            <div className="relative w-40 sm:w-52 md:w-72 lg:w-96 mx-auto">
+              {/* Optional Glow Behind Image */}
+              <div className="absolute -inset-2 bg-blue-100 rounded-full blur-xl opacity-40 z-0"></div>
+              <Image
+                src="/pfp.jfif"
+                alt="Rudicarm Visitacion-Gustilo"
+                width={400}
+                height={400}
+                priority
+                className="relative rounded-full shadow-xl ring-4 ring-blue-100 object-cover w-full h-auto z-10"
+              />
+            </div>
+          </FadeInOnScroll>
+
           <div className="text-center md:text-left space-y-5">
             <FadeInOnScroll>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-800 leading-snug">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 leading-snug">
                 Rudicarm Visitacion-Gustilo
               </h2>
             </FadeInOnScroll>
@@ -115,6 +113,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Services Section */}
       <section id="services" className="py-24 px-6 bg-white text-center scroll-mt-28">
         <FadeInOnScroll>
@@ -123,58 +122,67 @@ export default function Home() {
           </h2>
         </FadeInOnScroll>
 
-        <FadeInOnScroll>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-gray-700">
-            {[
-              {
-                icon: <BarChart className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'Bookkeeping & Reconciliations',
-                image: '/placeholder-bookkeeping.jpg',
-              },
-              {
-                icon: <Users className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'Payroll Processing',
-                image: '/placeholder-payroll.jpg',
-              },
-              {
-                icon: <FileText className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'BAS & IAS Compliance',
-                image: '/placeholder-compliance.jpg',
-              },
-              {
-                icon: <CalendarCheck className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'Financial Reporting',
-                image: '/placeholder-reporting.jpg',
-              },
-              {
-                icon: <CreditCard className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'E-Commerce Integrations',
-                image: '/placeholder-ecommerce.jpg',
-              },
-              {
-                icon: <Briefcase className="w-5 h-5 text-blue-700 mt-1" />,
-                title: 'CRM & Admin Support',
-                image: '/placeholder-admin.jpg',
-              },
-            ].map((service, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-xl shadow hover:shadow-md transition p-4">
-                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={600}
-                    height={300}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="flex items-start gap-3">
-                  {service.icon}
-                  <h4 className="text-lg font-semibold">{service.title}</h4>
-                </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-gray-700">
+          {[
+            {
+              icon: <BarChart className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'Bookkeeping & Reconciliations',
+              image: '/placeholder-bookkeeping.jpg',
+            },
+            {
+              icon: <Users className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'Payroll Processing',
+              image: '/placeholder-payroll.jpg',
+            },
+            {
+              icon: <FileText className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'BAS & IAS Compliance',
+              image: '/placeholder-compliance.jpg',
+            },
+            {
+              icon: <CalendarCheck className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'Financial Reporting',
+              image: '/placeholder-reporting.jpg',
+            },
+            {
+              icon: <CreditCard className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'E-Commerce Integrations',
+              image: '/placeholder-ecommerce.jpg',
+            },
+            {
+              icon: <Briefcase className="w-5 h-5 text-blue-700 mt-1" />,
+              title: 'CRM & Admin Support',
+              image: '/placeholder-admin.jpg',
+            },
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.15,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="bg-gray-50 rounded-xl shadow hover:shadow-md transition p-4"
+            >
+              <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={600}
+                  height={300}
+                  className="object-cover w-full h-full"
+                />
               </div>
-            ))}
-          </div>
-        </FadeInOnScroll>
+              <div className="flex items-start gap-3">
+                {service.icon}
+                <h4 className="text-lg font-semibold">{service.title}</h4>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Portfolio Section */}
@@ -187,47 +195,67 @@ export default function Home() {
             I’ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
           </p>
         </FadeInOnScroll>
-        <FadeInOnScroll>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <video
-                src="/shopify.mp4"
-                poster="/portfolio2.webp"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-auto object-cover"
-              />
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              type: 'video',
+              src: '/shopify.mp4',
+              poster: '/portfolio2.webp',
+              title: 'Shopify & Stripe Integration',
+              desc: 'Automated reports & invoicing for a global e-store',
+            },
+            {
+              type: 'video',
+              src: '/xero.mp4',
+              poster: '/portfolio1.webp',
+              title: 'Xero & Deputy Payroll',
+              desc: 'Weekly payroll & compliance for an AU-based company',
+            },
+            {
+              type: 'image',
+              src: '/portfolio3.png',
+              title: 'Document Automation',
+              desc: 'Optimized Dext, FYI, and Hubdoc workflows',
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.2, // 👈 stagger effect
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+              className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition"
+            >
+              {item.type === 'video' ? (
+                <video
+                  src={item.src}
+                  poster={item.poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto object-cover"
+                />
+              ) : (
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  width={400}
+                  height={240}
+                  className="w-full object-cover"
+                />
+              )}
               <div className="p-4 text-left">
-                <h4 className="font-semibold text-gray-800 mb-1">Shopify & Stripe Integration</h4>
-                <p className="text-sm text-gray-600">Automated reports & invoicing for a global e-store</p>
+                <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
+                <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <video
-                src="/xero.mp4"
-                poster="/portfolio1.webp"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-auto object-cover"
-              />              
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-gray-800 mb-1">Xero & Deputy Payroll</h4>
-                <p className="text-sm text-gray-600">Weekly payroll & compliance for an AU-based company</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <Image src="/portfolio3.png" alt="Automation Workflow" width={400} height={240} className="w-full object-cover" />
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-gray-800 mb-1">Document Automation</h4>
-                <p className="text-sm text-gray-600">Optimized Dext, FYI, and Hubdoc workflows</p>
-              </div>
-            </div>
-          </div>
-        </FadeInOnScroll>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Contact Section */}
