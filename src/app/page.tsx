@@ -73,13 +73,23 @@ export default function Home() {
               </p>
             </FadeInOnScroll>
             <FadeInOnScroll>
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mt-2">
               <a
                 href="#contact"
-                className="inline-block mt-2 px-6 py-3 bg-blue-700 text-white rounded-full font-semibold hover:bg-blue-600 transition"
+                className="inline-block px-6 py-3 bg-blue-700 text-white rounded-full font-semibold hover:bg-blue-600 transition"
               >
                 Work With Me
               </a>
-            </FadeInOnScroll>
+              <a
+                href="/Rudicarm Gustilo CV2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 border border-blue-700 text-blue-700 rounded-full font-semibold hover:bg-blue-50 transition"
+              >
+                View Resume
+              </a>
+            </div>
+          </FadeInOnScroll>
             <FadeInOnScroll>
               <div className="flex justify-center md:justify-start gap-4 mt-4 text-blue-700">
                 <a
