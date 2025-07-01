@@ -122,15 +122,58 @@ export default function Home() {
             Services Tailored for Your Business
           </h2>
         </FadeInOnScroll>
+
         <FadeInOnScroll>
-          <ul className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto text-left text-gray-700 text-lg">
-            <li className="flex items-start gap-3"><BarChart className="w-5 h-5 text-blue-700 mt-1" /> Bookkeeping & Reconciliations</li>
-            <li className="flex items-start gap-3"><Users className="w-5 h-5 text-blue-700 mt-1" /> Payroll Processing</li>
-            <li className="flex items-start gap-3"><FileText className="w-5 h-5 text-blue-700 mt-1" /> BAS & IAS Compliance</li>
-            <li className="flex items-start gap-3"><CalendarCheck className="w-5 h-5 text-blue-700 mt-1" /> Financial Reporting</li>
-            <li className="flex items-start gap-3"><CreditCard className="w-5 h-5 text-blue-700 mt-1" /> E-Commerce Integrations</li>
-            <li className="flex items-start gap-3"><Briefcase className="w-5 h-5 text-blue-700 mt-1" /> CRM & Admin Support</li>
-          </ul>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-gray-700">
+            {[
+              {
+                icon: <BarChart className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'Bookkeeping & Reconciliations',
+                image: '/placeholder-bookkeeping.jpg',
+              },
+              {
+                icon: <Users className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'Payroll Processing',
+                image: '/placeholder-payroll.jpg',
+              },
+              {
+                icon: <FileText className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'BAS & IAS Compliance',
+                image: '/placeholder-compliance.jpg',
+              },
+              {
+                icon: <CalendarCheck className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'Financial Reporting',
+                image: '/placeholder-reporting.jpg',
+              },
+              {
+                icon: <CreditCard className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'E-Commerce Integrations',
+                image: '/placeholder-ecommerce.jpg',
+              },
+              {
+                icon: <Briefcase className="w-5 h-5 text-blue-700 mt-1" />,
+                title: 'CRM & Admin Support',
+                image: '/placeholder-admin.jpg',
+              },
+            ].map((service, idx) => (
+              <div key={idx} className="bg-gray-50 rounded-xl shadow hover:shadow-md transition p-4">
+                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={600}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="flex items-start gap-3">
+                  {service.icon}
+                  <h4 className="text-lg font-semibold">{service.title}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
         </FadeInOnScroll>
       </section>
 
@@ -141,7 +184,7 @@ export default function Home() {
         </FadeInOnScroll>
         <FadeInOnScroll>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            I’ve worked with clients across Australia and Southeast Asia, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
+            I’ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
           </p>
         </FadeInOnScroll>
         <FadeInOnScroll>
