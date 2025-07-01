@@ -46,7 +46,7 @@ export default function Home() {
               {/* Optional Glow Behind Image */}
               <div className="absolute -inset-2 bg-blue-100 rounded-full blur-xl opacity-40 z-0"></div>
               <Image
-                src="/pfp.jfif"
+                src="/pfp.jpg"
                 alt="Rudicarm Visitacion-Gustilo"
                 width={400}
                 height={400}
@@ -108,6 +108,11 @@ export default function Home() {
                   <Mail className="w-6 h-6" />
                 </a>
               </div>
+              <div className="w-full px-4 sm:px-6 md:px-8">
+                <small className="block text-gray-500 text-xs sm:text-sm mt-2 leading-snug">
+                  Tip: Make sure your browser opens mail links with Gmail.
+                </small>
+              </div>
             </FadeInOnScroll>
           </div>
         </div>
@@ -159,10 +164,10 @@ export default function Home() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{
                 duration: 0.4,
-                delay: index * 0.15,
+                delay: index * 0.1,
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               className="bg-gray-50 rounded-xl shadow hover:shadow-md transition p-4"
@@ -284,6 +289,11 @@ export default function Home() {
               <Phone className="w-5 h-5" />
               Call Me
             </a>
+          </div>
+          <div className="w-full px-4 sm:px-6 md:px-8">
+            <small className="block text-gray-500 text-xs sm:text-sm mt-2 leading-snug">
+              Tip: Make sure your browser opens mail links with Gmail.
+            </small>
           </div>
         </FadeInOnScroll>
       </section>
