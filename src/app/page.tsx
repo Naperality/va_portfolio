@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { BarChart, CalendarCheck, CreditCard, FileText, Users, Briefcase, Linkedin, Facebook, Mail  } from 'lucide-react';
+import { BarChart, CalendarCheck, CreditCard, FileText, Users, Briefcase, Linkedin, Facebook, Mail, Phone  } from 'lucide-react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -50,8 +50,8 @@ export default function Home() {
           <FadeInOnScroll>
           <div className="w-40 sm:w-52 md:w-72 lg:w-96 mx-auto">
             <Image
-              src="/pfp.jpg"
-              alt="Rudicarm Visitacion-Gustillo"
+              src="/pfp.jfif"
+              alt="Rudicarm Visitacion-Gustilo"
               width={400}
               height={400}
               className="rounded-full shadow-lg ring-4 ring-blue-100 object-cover w-full h-auto"
@@ -61,7 +61,7 @@ export default function Home() {
           <div className="text-center md:text-left space-y-5">
             <FadeInOnScroll>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-blue-800 leading-snug">
-                Rudicarm Visitacion-Gustillo
+                Rudicarm Visitacion-Gustilo
               </h2>
             </FadeInOnScroll>
             <FadeInOnScroll>
@@ -85,7 +85,7 @@ export default function Home() {
             <FadeInOnScroll>
               <div className="flex justify-center md:justify-start gap-4 mt-4 text-blue-700">
                 <a
-                  href="https://linkedin.com/in/YOUR_PROFILE"
+                  href="https://www.linkedin.com/in/rudicarm-gustilo-291611247/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -94,7 +94,7 @@ export default function Home() {
                   <Linkedin className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://facebook.com/YOUR_PROFILE"
+                  href="https://www.facebook.com/rudicarm.visitacion#"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -103,7 +103,7 @@ export default function Home() {
                   <Facebook className="w-6 h-6" />
                 </a>
                 <a
-                  href="mailto:youremail@example.com"
+                  href="mailto:rudicarmvisitacion@gmail.com"
                   aria-label="Email"
                   className="hover:text-blue-500 transition"
                 >
@@ -147,21 +147,37 @@ export default function Home() {
         <FadeInOnScroll>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <Image src="/portfolio1.jpg" alt="E-Commerce Accounting" width={400} height={240} className="w-full object-cover" />
+              <video
+                src="/shopify.mp4"
+                poster="/portfolio2.webp"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-auto object-cover"
+              />
               <div className="p-4 text-left">
                 <h4 className="font-semibold text-gray-800 mb-1">Shopify & Stripe Integration</h4>
                 <p className="text-sm text-gray-600">Automated reports & invoicing for a global e-store</p>
               </div>
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <Image src="/portfolio2.jpg" alt="Payroll Services" width={400} height={240} className="w-full object-cover" />
+              <video
+                src="/xero.mp4"
+                poster="/portfolio1.webp"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-auto object-cover"
+              />              
               <div className="p-4 text-left">
                 <h4 className="font-semibold text-gray-800 mb-1">Xero & Deputy Payroll</h4>
                 <p className="text-sm text-gray-600">Weekly payroll & compliance for an AU-based company</p>
               </div>
             </div>
             <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition">
-              <Image src="/portfolio3.jpg" alt="Automation Workflow" width={400} height={240} className="w-full object-cover" />
+              <Image src="/portfolio3.png" alt="Automation Workflow" width={400} height={240} className="w-full object-cover" />
               <div className="p-4 text-left">
                 <h4 className="font-semibold text-gray-800 mb-1">Document Automation</h4>
                 <p className="text-sm text-gray-600">Optimized Dext, FYI, and Hubdoc workflows</p>
@@ -182,12 +198,22 @@ export default function Home() {
           </p>
         </FadeInOnScroll>
         <FadeInOnScroll>
-          <a
-            href="mailto:sample@example.com"
-            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
-          >
-            Email Me
-          </a>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href="mailto:rudicarmvisitacion@gmail.com"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
+            >
+              <Mail className="w-5 h-5" />
+              Email Me
+            </a>
+            <a
+              href="tel:+639171234567"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
+            >
+              <Phone className="w-5 h-5" />
+              Call Me
+            </a>
+          </div>
         </FadeInOnScroll>
       </section>
 
