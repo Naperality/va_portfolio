@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main className="bg-white text-gray-800 scroll-smooth">
 
-      {/* Hero Section */}
+    {/* Hero Section */}
       <section
         id="about"
         className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 via-white to-yellow-50 scroll-mt-28"
@@ -201,112 +201,163 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-24 px-6 bg-blue-50 text-center scroll-mt-28">
-        <FadeInOnScroll>
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">Experience & Highlights</h2>
-        </FadeInOnScroll>
-        <FadeInOnScroll>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            I’ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
-          </p>
-        </FadeInOnScroll>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {[
-            {
-              type: 'video',
-              src: '/shopify.mp4',
-              poster: '/portfolio2.webp',
-              title: 'Shopify & Stripe Integration',
-              desc: 'Automated reports & invoicing for a global e-store',
-            },
-            {
-              type: 'video',
-              src: '/xero.mp4',
-              poster: '/portfolio1.webp',
-              title: 'Xero & Deputy Payroll',
-              desc: 'Weekly payroll & compliance for an AU-based company',
-            },
-            {
-              type: 'image',
-              src: '/portfolio3.png',
-              title: 'Document Automation',
-              desc: 'Optimized Dext, FYI, and Hubdoc workflows',
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.2, // 👈 stagger effect
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition"
-            >
-              {item.type === 'video' ? (
-                <video
-                  src={item.src}
-                  poster={item.poster}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto object-cover"
-                />
-              ) : (
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  width={400}
-                  height={240}
-                  className="w-full object-cover"
-                />
-              )}
-              <div className="p-4 text-left">
-                <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
-                <p className="text-sm text-gray-600">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
+      <section
+        id="portfolio"
+        className="relative py-24 px-6 bg-gradient-to-r from-yellow-50 via-white to-blue-50 text-center scroll-mt-28 overflow-hidden"
+      >
+        {/* 🔵 Background Image (blurred & subtle) */}
+        <div className="absolute inset-0 opacity-5">
+          <Image
+            src="/portfolio-bg.jpg" // 🔄 Replace with your preferred background
+            alt="Portfolio background"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <FadeInOnScroll>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">Experience & Highlights</h2>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              I’ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
+            </p>
+          </FadeInOnScroll>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              {
+                type: 'video',
+                src: '/shopify.mp4',
+                poster: '/portfolio2.webp',
+                title: 'Shopify & Stripe Integration',
+                desc: 'Automated reports & invoicing for a global e-store',
+              },
+              {
+                type: 'video',
+                src: '/xero.mp4',
+                poster: '/portfolio1.webp',
+                title: 'Xero & Deputy Payroll',
+                desc: 'Weekly payroll & compliance for an AU-based company',
+              },
+              {
+                type: 'image',
+                src: '/portfolio3.png',
+                title: 'Document Automation',
+                desc: 'Optimized Dext, FYI, and Hubdoc workflows',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.2,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="backdrop-blur-md bg-white/60 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition border border-gray-200"
+              >
+                {item.type === 'video' ? (
+                  <video
+                    src={item.src}
+                    poster={item.poster}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-48 object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    width={400}
+                    height={240}
+                    className="w-full h-48 object-cover"
+                  />
+                )}
+                <div className="p-4 text-left">
+                  <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 bg-white text-center scroll-mt-28">
-        <FadeInOnScroll>
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">Let’s Connect</h2>
-        </FadeInOnScroll>
-        <FadeInOnScroll>
-          <p className="text-gray-700 mb-6 max-w-xl mx-auto">
-            Ready to streamline your books or offload day-to-day admin tasks? Reach out and let’s discuss how I can support your business.
-          </p>
-        </FadeInOnScroll>
-        <FadeInOnScroll>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a
-              href="mailto:rudicarmvisitacion@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
-            >
-              <Mail className="w-5 h-5" />
-              Email Me
-            </a>
-            <a
-              href="tel:+639171234567"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
-            >
-              <Phone className="w-5 h-5" />
-              Call Me
-            </a>
+      <section
+        id="contact"
+        className="relative py-24 px-6 bg-gradient-to-br from-blue-50 via-white to-yellow-50 text-center scroll-mt-28 overflow-hidden"
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="/contact-bg.jpg" // 🖼️ replace with your own image
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+          {/* Left: Illustration / Photo */}
+          <FadeInOnScroll>
+            <div className="flex justify-center md:justify-end">
+              <Image
+                src="/contact-illustration.jpg" // 🖼️ your own friendly illustration or photo
+                alt="Get in touch"
+                width={400}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </FadeInOnScroll>
+
+          {/* Right: Contact Info */}
+          <div className="text-center md:text-left">
+            <FadeInOnScroll>
+              <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
+                Let’s Connect
+              </h2>
+            </FadeInOnScroll>
+
+            <FadeInOnScroll>
+              <p className="text-gray-700 mb-6 max-w-xl">
+                Ready to streamline your books or offload day-to-day admin tasks? Reach out and let’s discuss how I can support your business.
+              </p>
+            </FadeInOnScroll>
+
+            <FadeInOnScroll>
+              <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-4">
+                <a
+                  href="mailto:rudicarmvisitacion@gmail.com"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
+                >
+                  <Mail className="w-5 h-5" />
+                  Email Me
+                </a>
+                <a
+                  href="tel:+639171234567"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call Me
+                </a>
+              </div>
+              <small className="block text-gray-500 text-xs sm:text-sm mt-3">
+                Tip: Make sure your browser opens mail links with Gmail.
+              </small>
+            </FadeInOnScroll>
           </div>
-          <div className="w-full px-4 sm:px-6 md:px-8">
-            <small className="block text-gray-500 text-xs sm:text-sm mt-2 leading-snug">
-              Tip: Make sure your browser opens mail links with Gmail.
-            </small>
-          </div>
-        </FadeInOnScroll>
+        </div>
       </section>
+
 
     </main>
   );

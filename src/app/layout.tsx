@@ -54,7 +54,7 @@ export default function RootLayout({
           <Navbar />  
 
           {/* Main content area */}
-          <main className="flex-grow max-w-6xl mx-auto w-full px-4 py-6">
+          <main className="flex-grow w-full">
             {children}
           </main>
 
