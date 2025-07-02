@@ -34,11 +34,25 @@ export default function Home() {
     {/* Hero Section */}
       <section
         id="about"
-        className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 via-white to-yellow-50 scroll-mt-28"
+        className="relative pt-32 pb-20 px-6 min-h-screen flex flex-col md:flex-row items-center justify-center scroll-mt-28 overflow-hidden"
       >
-        {/* Decorative Circle Behind Profile */}
-        <div className="absolute top-20 left-5 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl z-0"></div>
-        <div className="absolute bottom-0 right-10 w-56 h-56 bg-yellow-100 rounded-full opacity-20 blur-2xl z-0"></div>
+        {/* 🖼️ Background image behind everything */}
+        <div className="absolute inset-0 -z-5">
+          <Image
+            src="/hero-bg.jpg"
+            alt="Hero Background"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+
+        {/* 💫 Optional gradient overlay on top of image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-yellow-50 opacity-80 -z-10"></div>
+
+        {/* 💫 Decorative blurs */}
+        <div className="absolute top-20 left-5 w-72 h-72 bg-blue-100 rounded-full opacity-20 blur-3xl -z-10"></div>
+        <div className="absolute bottom-0 right-10 w-56 h-56 bg-yellow-100 rounded-full opacity-20 blur-2xl -z-10"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <FadeInOnScroll>
@@ -130,75 +144,91 @@ export default function Home() {
 
 
       {/* Services Section */}
-      <section id="services" className="py-24 px-6 bg-white text-center scroll-mt-28">
-        <FadeInOnScroll>
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-10">
-            Services Tailored for Your Business
-          </h2>
-        </FadeInOnScroll>
+      <section
+        id="services"
+        className="relative py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-white text-center scroll-mt-28 overflow-hidden"
+      >
+        {/* 🔵 Soft Background Image */}
+        <div className="absolute inset-0 opacity-10 -z-8">
+          <Image
+            src="/services-bg.jpg" // Use a subtle business/abstract background
+            alt="Services Background"
+            fill
+            className="object-cover"
+          />
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-gray-700">
-          {[
-            {
-              icon: <BarChart className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'Bookkeeping & Reconciliations',
-              image: '/placeholder-bookkeeping.jpg',
-            },
-            {
-              icon: <Users className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'Payroll Processing',
-              image: '/placeholder-payroll.jpg',
-            },
-            {
-              icon: <FileText className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'BAS & IAS Compliance',
-              image: '/placeholder-compliance.jpg',
-            },
-            {
-              icon: <CalendarCheck className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'Financial Reporting',
-              image: '/placeholder-reporting.jpg',
-            },
-            {
-              icon: <CreditCard className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'E-Commerce Integrations',
-              image: '/placeholder-ecommerce.jpg',
-            },
-            {
-              icon: <Briefcase className="w-5 h-5 text-blue-700 mt-1" />,
-              title: 'CRM & Admin Support',
-              image: '/placeholder-admin.jpg',
-            },
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-                ease: [0.25, 0.1, 0.25, 1],
-              }}
-              className="bg-gray-50 rounded-xl shadow hover:shadow-md transition p-4"
-            >
-              <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  width={600}
-                  height={300}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="flex items-start gap-3">
-                {service.icon}
-                <h4 className="text-lg font-semibold">{service.title}</h4>
-              </div>
-            </motion.div>
-          ))}
+        <div className="relative z-10">
+          <FadeInOnScroll>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-10">
+              Services Tailored for Your Business
+            </h2>
+          </FadeInOnScroll>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto text-left text-gray-700">
+            {[
+              {
+                icon: <BarChart className="w-6 h-6 text-blue-600" />,
+                title: 'Bookkeeping & Reconciliations',
+                image: '/placeholder-bookkeeping.jpg',
+              },
+              {
+                icon: <Users className="w-6 h-6 text-blue-600" />,
+                title: 'Payroll Processing',
+                image: '/placeholder-payroll.jpg',
+              },
+              {
+                icon: <FileText className="w-6 h-6 text-blue-600" />,
+                title: 'BAS & IAS Compliance',
+                image: '/placeholder-compliance.jpg',
+              },
+              {
+                icon: <CalendarCheck className="w-6 h-6 text-blue-600" />,
+                title: 'Financial Reporting',
+                image: '/placeholder-reporting.jpg',
+              },
+              {
+                icon: <CreditCard className="w-6 h-6 text-blue-600" />,
+                title: 'E-Commerce Integrations',
+                image: '/placeholder-ecommerce.jpg',
+              },
+              {
+                icon: <Briefcase className="w-6 h-6 text-blue-600" />,
+                title: 'CRM & Admin Support',
+                image: '/placeholder-admin.jpg',
+              },
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="backdrop-blur-md bg-white/70 border border-gray-200 rounded-xl shadow hover:shadow-blue-100 transition p-5"
+              >
+                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden shadow-sm">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={600}
+                    height={300}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="flex items-center gap-3">
+                  {service.icon}
+                  <h4 className="text-lg font-semibold text-gray-800">{service.title}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
+
 
       {/* Portfolio Section */}
       <section
