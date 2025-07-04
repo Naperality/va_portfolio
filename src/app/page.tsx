@@ -142,6 +142,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider from Hero to About Me */}
+      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+
+      {/* About Me Section */}
+      <section
+        id="about-me"
+        className="relative py-24 px-6 min-h-[80vh] flex items-center justify-center bg-white scroll-mt-28 overflow-hidden"
+      >
+        {/* 🖼️ Background image */}
+        <div className="absolute inset-0 -z-8">
+          <Image
+            src="/about-bg.jpg" // 👉 Add your about section photo in /public
+            alt="About background"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+        </div>
+
+        {/* 💫 Gradient overlay for soft transition */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/70 to-yellow-50/60 -z-10"></div>
+
+        {/* ✨ Decorative blur orbs */}
+        <div className="absolute top-10 left-10 w-40 h-40 bg-blue-200 rounded-full opacity-20 blur-2xl -z-10"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-yellow-200 rounded-full opacity-20 blur-3xl -z-10"></div>
+
+        {/* 📄 Text Content */}
+        <div className="relative z-10 max-w-4xl bg-white/70 backdrop-blur-lg rounded-xl shadow-xl p-8 text-center md:text-left space-y-6 border border-blue-100">
+          <FadeInOnScroll>
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800">About Me</h2>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              Hi, I'm <strong>Rudicarm “RC” Gustilo</strong>, a seasoned accountant supporting
+              property-focused businesses across Australia. I work remotely from Cebu,
+              providing full-spectrum bookkeeping and accounting support to real estate
+              agencies, construction firms, and property management teams.
+            </p>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+              With expertise in <strong>Xero</strong>, <strong>QuickBooks</strong>, <strong>BAS and IAS lodgments</strong>,
+              <strong> payroll</strong>, and <strong>monthly reconciliations</strong>, I help teams stay compliant,
+              audit-ready, and financially sharp. I work closely with finance leads to
+              manage multi-entity setups, clean up messy accounts, and streamline reporting
+              that drives confident decisions.
+            </p>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed italic">
+              If your books need more structure, speed, or sanity — let’s talk!
+            </p>
+          </FadeInOnScroll>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section
