@@ -201,6 +201,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider from About me to Services */}
+      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+
       {/* Services Section */}
       <section
         id="services"
@@ -287,6 +290,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Divider from Services to Portfolio */}
+      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
 
       {/* Portfolio Section */}
       <section
@@ -378,6 +383,9 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Divider from Portfolio to Contact */}
+      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+
       {/* Contact Section */}
       <section
         id="contact"
