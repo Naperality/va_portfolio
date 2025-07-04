@@ -28,3 +28,33 @@ Live Site: [https://your-deployment-link.com](https://your-deployment-link.com)
 
 ## 📁 Folder Structure
 
+```
+/app
+/components # Reusable UI components
+/sections # Page sections (hero, services, about, contact)
+layout.tsx # Global layout
+page.tsx # Main one-page content
+/public
+/images # Images used in the site
+/styles
+globals.css # Tailwind base styles
+README.md
+tailwind.config.ts
+next.config.js
+```
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/va-portfolio.git
+cd va-portfolio
+npm install
+npm run dev
+Site will be available at http://localhost:3000
+```
+
+## 📦 Deployment
