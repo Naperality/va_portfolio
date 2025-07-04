@@ -58,3 +58,30 @@ Site will be available at http://localhost:3000
 ```
 
 ## 📦 Deployment
+You can deploy this project easily on Vercel:
+
+- Push your project to GitHub
+
+- Connect your GitHub repo to Vercel
+
+- Set framework as Next.js
+
+- Deploy — done!
+
+
+## 🙋‍♀️ About the Client
+
+This portfolio represents a professional Virtual Assistant who offers:
+
+- Administrative support
+
+- Bookkeeping and accounting
+
+- Calendar and inbox management
+
+- Client communications and reporting
+
+Looking to collaborate or hire? Visit the Contact section in the portfolio.
+
+## 📄 License
+This project is open-source and available under the MIT License.
