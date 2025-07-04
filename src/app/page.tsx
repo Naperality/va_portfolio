@@ -176,7 +176,7 @@ export default function Home() {
 
           <FadeInOnScroll>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              Hi, I'm <strong>Rudicarm “RC” Gustilo</strong>, a seasoned accountant supporting
+              Hi, I&rsquo;m <strong>Rudicarm &ldquo;RC&rdquo; Gustilo</strong>, a seasoned accountant supporting
               property-focused businesses across Australia. I work remotely from Cebu,
               providing full-spectrum bookkeeping and accounting support to real estate
               agencies, construction firms, and property management teams.
