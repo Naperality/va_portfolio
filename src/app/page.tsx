@@ -143,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Divider from Hero to About Me */}
-      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+      <div className="h-4 bg-gradient-to-b from-transparent to-white" />
 
       {/* About Me Section */}
       <section
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Divider from About me to Services */}
-      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+      <div className="h-4 bg-gradient-to-b from-transparent to-white" />
 
       {/* Services Section */}
       <section
@@ -291,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* Divider from Services to Portfolio */}
-      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+      <div className="h-4 bg-gradient-to-b from-transparent to-white" />
 
       {/* Portfolio Section */}
       <section
@@ -384,7 +384,7 @@ export default function Home() {
       </section>
       
       {/* Divider from Portfolio to Contact */}
-      <div className="h-8 bg-gradient-to-b from-transparent to-white" />
+      <div className="h-2 bg-gradient-to-b from-transparent to-white" />
 
       {/* Contact Section */}
       <section
