@@ -695,13 +695,13 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-blue-800">🔧 One-Time Clean-Up</h3>
                 </div>
                 <p className="text-sm text-gray-600 mb-2">Starts at <strong>$500 USD</strong> (Flat rate or hourly, depending on scope)</p>
-                <p className="text-sm text-gray-600 mb-3">Books a mess? I’ll clean them up.</p>
+                <p className="text-sm text-gray-600 mb-3">Books a mess? I&rsquo;ll clean them up.</p>
                 <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
                   <li>Backlog reconciliation (bank, credit card, PayPal, etc.)</li>
                   <li>Catch-up invoicing, bills, and payroll</li>
                   <li>Fixing miscodings and messy ledgers</li>
                   <li>Setup or review of Xero/QuickBooks file structure</li>
-                  <li>Up to 12 months' worth of clean-up (custom quotes for bigger jobs)</li>
+                  <li>Up to 12 months&rsquo; worth of clean-up (custom quotes for bigger jobs)</li>
                 </ul>
               </div>
             </FadeInOnScroll>
@@ -712,7 +712,7 @@ export default function Home() {
                 <a href="#contact" className="group block text-blue-700 hover:text-blue-600 transition duration-300">
                 <MessageCircleMore className="w-6 h-6 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                 <p className="text-sm sm:text-base">
-                  <strong>Not seeing what you need?</strong> <span className="underline">Let’s build something custom</span>. Whether it’s 10 hours a month, project-based, or scalable support—I’ve got you.
+                  <strong>Not seeing what you need?</strong> <span className="underline">Let&rsquo;s build something custom</span>. Whether it&rsquo;s 10 hours a month, project-based, or scalable support—I&rsquo;ve got you.
                 </p>
               </a>
               </div>
