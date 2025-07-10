@@ -2,7 +2,25 @@
 
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { BarChart, CalendarCheck, CreditCard, FileText, Users, Briefcase, Linkedin, Facebook, Mail, Phone, Laptop, Network  } from 'lucide-react';
+import { BarChart, 
+        CalendarCheck, 
+        CreditCard, 
+        FileText, 
+        Users, 
+        Briefcase, 
+        Linkedin, 
+        Facebook, 
+        Mail, 
+        Phone, 
+        Laptop, 
+        Network,
+        BadgeDollarSign, 
+        Clock, 
+        Settings2, 
+        DollarSign, 
+        Sparkles, 
+        MessageCircleMore
+      } from 'lucide-react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -442,7 +460,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{
-                  duration: 0.4,
+                  duration: 0.3,
                   delay: index * 0.1,
                   ease: [0.25, 0.1, 0.25, 1],
                 }}
@@ -557,7 +575,153 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Divider from Portfolio to Contact */}
+      {/* Divider from Portfolio to Rates */}
+      <div className="h-2 bg-gradient-to-b from-transparent to-white" />
+      {/* Section pricing */}
+      <FadeInOnScroll>
+        <section
+          id="pricing"
+          className="relative py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-yellow-50 text-center scroll-mt-28 overflow-hidden"
+        >
+          <div className="absolute inset-0 opacity-10 -z-8">
+            <Image
+              src="/pricing-bg.png" // optional background
+              alt="Pricing background"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <FadeInOnScroll>
+              <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4 flex items-center justify-center gap-3">
+                <BadgeDollarSign className="w-7 h-7 text-blue-700" />
+                Rates & Packages
+              </h2>
+              <p className="text-gray-700 max-w-2xl mx-auto mb-10 text-base sm:text-lg leading-relaxed">
+                Reliable, accurate, and flexible accounting support for businesses that want their books done right—without the stress.
+              </p>
+            </FadeInOnScroll>
+
+            {/* Hourly */}
+            <FadeInOnScroll>
+              <div className="bg-white/80 backdrop-blur-md border border-blue-100 shadow-md rounded-xl p-6 sm:p-8 mb-12 max-w-xl mx-auto text-left">
+                <div className="flex items-center gap-3 mb-2">
+                  <Clock className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-semibold text-blue-800">Hourly Rate</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-2">$12 USD / hour</p>
+                <p className="text-sm text-gray-600">
+                  Best for ad-hoc tasks, short-term help, or when you just need someone to jump in and sort things out.
+                </p>
+              </div>
+            </FadeInOnScroll>
+
+            {/* Packages */}
+            <div className="grid md:grid-cols-3 gap-6 text-left">
+              {[
+                {
+                  title: 'Starter Package',
+                  price: '$500 / month',
+                  icon: Settings2,
+                  hours: 'Up to 20 hours/month',
+                  features: [
+                    'Bank and credit card reconciliations (1–2 accounts)',
+                    'Monthly BAS/BIR compliance prep',
+                    'Basic reports (P&L, balance sheet)',
+                    'Invoice and bill entry',
+                    'Light email support',
+                  ],
+                },
+                {
+                  title: 'Growth Package',
+                  price: '$800 / month',
+                  icon: Sparkles,
+                  hours: 'Up to 40 hours/month',
+                  features: [
+                    'Full-cycle bookkeeping',
+                    'Payroll processing (AU or PH)',
+                    'BAS/IAS prep and review',
+                    'AR/AP tracking',
+                    'Monthly management reports',
+                    'Tools: Xero, QuickBooks, Hubdoc, Dext, etc.',
+                  ],
+                },
+                {
+                  title: 'Premium Package',
+                  price: '$1000 / month',
+                  icon: DollarSign,
+                  hours: 'Up to 60 hours/month',
+                  features: [
+                    'Everything in Growth Package',
+                    'Multi-entity and multi-currency support',
+                    'Airwallex, Wise, Stripe, Shopify integration',
+                    'Intercompany reconciliations',
+                    'Weekly check-ins and summaries',
+                  ],
+                },
+              ].map((pkg, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.2 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.2,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                  className="bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <pkg.icon className="w-5 h-5 text-blue-600" />
+                    <h4 className="text-lg font-semibold text-blue-800">{pkg.title}</h4>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-1">{pkg.price} <span className="block text-xs text-gray-500">{pkg.hours}</span></p>
+                  <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* One-Time Clean-Up */}
+            <FadeInOnScroll>
+              <div className="mt-16 bg-white/80 backdrop-blur-md border border-blue-100 shadow-md rounded-xl p-6 sm:p-8 max-w-3xl mx-auto text-left">
+                <div className="flex items-center gap-3 mb-2">
+                  <Settings2 className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-semibold text-blue-800">🔧 One-Time Clean-Up</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-2">Starts at <strong>$500 USD</strong> (Flat rate or hourly, depending on scope)</p>
+                <p className="text-sm text-gray-600 mb-3">Books a mess? I’ll clean them up.</p>
+                <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                  <li>Backlog reconciliation (bank, credit card, PayPal, etc.)</li>
+                  <li>Catch-up invoicing, bills, and payroll</li>
+                  <li>Fixing miscodings and messy ledgers</li>
+                  <li>Setup or review of Xero/QuickBooks file structure</li>
+                  <li>Up to 12 months' worth of clean-up (custom quotes for bigger jobs)</li>
+                </ul>
+              </div>
+            </FadeInOnScroll>
+
+            {/* Custom Offer */}
+            <FadeInOnScroll>
+              <div className="mt-12 text-center max-w-xl mx-auto">
+                <a href="#contact" className="group block text-blue-700 hover:text-blue-600 transition duration-300">
+                <MessageCircleMore className="w-6 h-6 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                <p className="text-sm sm:text-base">
+                  <strong>Not seeing what you need?</strong> <span className="underline">Let’s build something custom</span>. Whether it’s 10 hours a month, project-based, or scalable support—I’ve got you.
+                </p>
+              </a>
+              </div>
+            </FadeInOnScroll>
+          </div>
+        </section>
+      </FadeInOnScroll>
+
+      {/* Divider from Rates to Contact */}
       <div className="h-2 bg-gradient-to-b from-transparent to-white" />
 
       {/* Contact Section */}
