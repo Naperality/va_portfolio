@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { BarChart, CalendarCheck, CreditCard, FileText, Users, Briefcase, Linkedin, Facebook, Mail, Phone  } from 'lucide-react';
+import { BarChart, CalendarCheck, CreditCard, FileText, Users, Briefcase, Linkedin, Facebook, Mail, Phone, Laptop, Network  } from 'lucide-react';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -230,22 +230,22 @@ export default function Home() {
             {[
               {
                 icon: <BarChart className="w-6 h-6 text-blue-600" />,
-                title: 'Bookkeeping & Reconciliations',
+                title: 'Full-Cycle Bookkeeping',
                 image: '/placeholder-bookkeeping.jpg',
               },
               {
                 icon: <Users className="w-6 h-6 text-blue-600" />,
-                title: 'Payroll Processing',
+                title: 'BAS, IAS, FBT Lodgment (AU Compliance)',
                 image: '/placeholder-payroll.jpg',
               },
               {
                 icon: <FileText className="w-6 h-6 text-blue-600" />,
-                title: 'BAS & IAS Compliance',
+                title: 'Month-End & Year-End Closing',
                 image: '/placeholder-compliance.jpg',
               },
               {
                 icon: <CalendarCheck className="w-6 h-6 text-blue-600" />,
-                title: 'Financial Reporting',
+                title: 'Accounts Payable & Receivable',
                 image: '/placeholder-reporting.jpg',
               },
               {
@@ -290,7 +290,181 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Divider from Services to Portfolio */}
+      {/* Divider from Services to Tools */}
+      <div className="h-4 bg-gradient-to-b from-transparent to-white" />
+
+      {/* Tools Expertise Section */}
+      <section
+        id="tools"
+        className="relative py-24 px-6 bg-gradient-to-br from-white via-yellow-50 to-blue-50 text-center scroll-mt-28 overflow-hidden"
+      >
+        {/* Background image or abstract layer (optional) */}
+        <div className="absolute inset-0 opacity-8 -z-10">
+          <Image
+            src="/tools/tools-bg.jpg" // 🔄 Optional: Replace with a soft tech or abstract background
+            alt="Tools Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <FadeInOnScroll>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center sm:text-left">
+              <Laptop className="w-6 h-6 sm:w-7 sm:h-7 text-blue-700" />
+              <span>Software & Tools Expertise</span>
+            </h2>
+          </FadeInOnScroll>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left text-gray-700">
+            {[
+              {
+                title: 'Xero (Advisor & Payroll Certified)',
+                img: '/tools/xero.gif', // Replace with GIF or PNG in /public/tools
+                keywords: 'xero dashboard, xero certified icon',
+              },
+              {
+                title: 'QuickBooks Online/Desktop',
+                img: '/tools/quickbooks.gif', // Replace with relevant visual
+                keywords: 'quickbooks user, qb interface',
+              },
+              {
+                title: 'MYOB & SAP',
+                img: '/tools/myob-sap.webp',
+                keywords: 'SAP dashboard, MYOB UI',
+              },
+              {
+                img: '/portfolio3.png',
+                title: 'Hubdoc, Dext, FYI Docs',
+                keywords: 'automated receipts gif',
+              },
+              {
+                title: 'Excel (Pivot Tables, Lookups)',
+                img: '/tools/excel.gif',
+                keywords: 'excel formulas, spreadsheet skills',
+              },
+              {
+                title: 'Google Sheets (Dashboards & Charts)',
+                img: '/tools/google-sheets.gif',
+                keywords: 'google sheets animation, chart gif',
+              },
+            ].map((tool, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="backdrop-blur-md bg-white/70 border border-gray-200 rounded-xl shadow hover:shadow-blue-100 transition p-5"
+              >
+                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden shadow-sm">
+                  <Image
+                    src={tool.img}
+                    alt={tool.title}
+                    width={600}
+                    height={300}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-800">{tool.title}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider from Tools to Workflow */}
+      <div className="h-4 bg-gradient-to-b from-transparent to-white" />
+
+      {/* Remote Collaboration & Workflow Section */}
+      <section
+        id="workflow"
+        className="relative py-24 px-6 bg-gradient-to-br from-blue-50 via-white to-yellow-50 text-center scroll-mt-28 overflow-hidden"
+      >
+        {/* Optional Background Image */}
+        <div className="absolute inset-0 opacity-5 -z-5">
+          <Image
+            src="/workflow/workflow-bg.webp" // 🔄 Use a subtle tech/remote work image
+            alt="Workflow background"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <FadeInOnScroll>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center sm:text-left">
+              <Network className="w-6 h-6 sm:w-7 sm:h-7 text-blue-700" />
+              <span>Remote Collaboration & Workflow</span>
+            </h2>
+          </FadeInOnScroll>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left text-gray-700">
+            {[
+              {
+                title: 'Payroll via Deputy',
+                img: '/workflow/deputy.gif',
+                keywords: 'Deputy HR dashboard, payroll schedule',
+              },
+              {
+                title: 'Bank Feed Reconciliation (Airwallex, Wise, Stripe, Shopify)',
+                img: '/workflow/bank-sync.gif',
+                keywords: 'bank sync animation, stripe bookkeeping',
+              },
+              {
+                title: 'Client Communication',
+                img: '/workflow/communication.gif',
+                keywords: 'remote chat, email communication animation',
+              },
+              {
+                title: 'Audit Support & Year-End Packs',
+                img: '/workflow/audit-checklist.gif',
+                keywords: 'audit report, year-end financial animation',
+              },
+              {
+                title: 'Multi-Entity & Multi-Currency',
+                img: '/workflow/multi-currency.gif',
+                keywords: 'global finance, multi-currency ledger',
+              },
+              {
+                title: 'Training & Mentoring',
+                img: '/workflow/training.gif',
+                keywords: 'team guidance gif, mentoring support',
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                className="backdrop-blur-md bg-white/70 border border-gray-200 rounded-xl shadow hover:shadow-blue-100 transition p-5"
+              >
+                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden shadow-sm">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={600}
+                    height={300}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-800">{item.title}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider from Workflow to Portfolio */}
       <div className="h-4 bg-gradient-to-b from-transparent to-white" />
 
       {/* Portfolio Section */}
