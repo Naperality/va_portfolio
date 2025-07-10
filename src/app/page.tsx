@@ -578,14 +578,13 @@ export default function Home() {
       {/* Divider from Portfolio to Rates */}
       <div className="h-2 bg-gradient-to-b from-transparent to-white" />
       {/* Section pricing */}
-      <FadeInOnScroll>
         <section
           id="pricing"
           className="relative py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-yellow-50 text-center scroll-mt-28 overflow-hidden"
         >
           <div className="absolute inset-0 opacity-10 -z-8">
             <Image
-              src="/pricing-bg.png" // optional background
+              src="/pricing-bg.png"
               alt="Pricing background"
               fill
               className="object-cover"
@@ -603,86 +602,87 @@ export default function Home() {
               </p>
             </FadeInOnScroll>
 
-            {/* Hourly */}
+            {/* Hourly Rate */}
             <FadeInOnScroll>
-              <div className="bg-white/80 backdrop-blur-md border border-blue-100 shadow-md rounded-xl p-6 sm:p-8 mb-12 max-w-xl mx-auto text-left">
+              <div className="bg-white/90 backdrop-blur-md border border-blue-100 shadow-md rounded-lg p-6 sm:p-8 mb-16 max-w-md mx-auto text-left">
                 <div className="flex items-center gap-3 mb-2">
                   <Clock className="w-5 h-5 text-blue-600" />
                   <h3 className="text-xl font-semibold text-blue-800">Hourly Rate</h3>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">$12 USD / hour</p>
+                <p className="text-lg font-bold text-blue-700 mb-1">$12 USD / hour</p>
                 <p className="text-sm text-gray-600">
                   Best for ad-hoc tasks, short-term help, or when you just need someone to jump in and sort things out.
                 </p>
               </div>
             </FadeInOnScroll>
 
-            {/* Packages */}
+            {/* Packages Grid */}
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              {[
-                {
-                  title: 'Starter Package',
-                  price: '$500 / month',
-                  icon: Settings2,
-                  hours: 'Up to 20 hours/month',
-                  features: [
-                    'Bank and credit card reconciliations (1–2 accounts)',
-                    'Monthly BAS/BIR compliance prep',
-                    'Basic reports (P&L, balance sheet)',
-                    'Invoice and bill entry',
-                    'Light email support',
-                  ],
-                },
-                {
-                  title: 'Growth Package',
-                  price: '$800 / month',
-                  icon: Sparkles,
-                  hours: 'Up to 40 hours/month',
-                  features: [
-                    'Full-cycle bookkeeping',
-                    'Payroll processing (AU or PH)',
-                    'BAS/IAS prep and review',
-                    'AR/AP tracking',
-                    'Monthly management reports',
-                    'Tools: Xero, QuickBooks, Hubdoc, Dext, etc.',
-                  ],
-                },
-                {
-                  title: 'Premium Package',
-                  price: '$1000 / month',
-                  icon: DollarSign,
-                  hours: 'Up to 60 hours/month',
-                  features: [
-                    'Everything in Growth Package',
-                    'Multi-entity and multi-currency support',
-                    'Airwallex, Wise, Stripe, Shopify integration',
-                    'Intercompany reconciliations',
-                    'Weekly check-ins and summaries',
-                  ],
-                },
-              ].map((pkg, index) => (
+              {[{
+                title: 'Starter Package',
+                price: '$500 / month',
+                icon: Settings2,
+                hours: 'Up to 20 hours/month',
+                features: [
+                  'Bank and credit card reconciliations (1–2 accounts)',
+                  'Monthly BAS/BIR compliance prep',
+                  'Basic reports (P&L, balance sheet)',
+                  'Invoice and bill entry',
+                  'Light email support',
+                ],
+              }, {
+                title: 'Growth Package',
+                price: '$800 / month',
+                icon: Sparkles,
+                hours: 'Up to 40 hours/month',
+                features: [
+                  'Full-cycle bookkeeping',
+                  'Payroll processing (AU or PH)',
+                  'BAS/IAS prep and review',
+                  'AR/AP tracking',
+                  'Monthly management reports',
+                  'Tools: Xero, QuickBooks, Hubdoc, Dext, etc.',
+                ],
+              }, {
+                title: 'Premium Package',
+                price: '$1000 / month',
+                icon: DollarSign,
+                hours: 'Up to 60 hours/month',
+                features: [
+                  'Everything in Growth Package',
+                  'Multi-entity and multi-currency support',
+                  'Airwallex, Wise, Stripe, Shopify integration',
+                  'Intercompany reconciliations',
+                  'Weekly check-ins and summaries',
+                ],
+              }].map((pkg, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.2 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: index * 0.2,
-                    ease: [0.25, 0.1, 0.25, 1],
-                  }}
-                  className="bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow hover:shadow-lg transition p-6 flex flex-col"
+                  transition={{ duration: 0.4, delay: index * 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                  className={`relative bg-white border-2 ${index === 1 ? 'border-blue-500 shadow-lg scale-[1.02]' : 'border-gray-200'} rounded-xl p-6 flex flex-col justify-between transition hover:shadow-xl`}
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <pkg.icon className="w-5 h-5 text-blue-600" />
-                    <h4 className="text-lg font-semibold text-blue-800">{pkg.title}</h4>
+                  {index === 1 && (
+                    <span className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs px-3 py-1 rounded-full shadow">Best Value</span>
+                  )}
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <pkg.icon className="w-5 h-5 text-blue-600" />
+                      <h4 className="text-lg font-semibold text-blue-800">{pkg.title}</h4>
+                    </div>
+                    <p className="text-lg font-bold text-blue-700 mb-1">{pkg.price}</p>
+                    <p className="text-xs text-gray-500 mb-3">{pkg.hours}</p>
+                    <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                      {pkg.features.map((feature, idx) => (
+                        <li key={idx}>{feature}</li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-sm text-gray-600 mb-1">{pkg.price} <span className="block text-xs text-gray-500">{pkg.hours}</span></p>
-                  <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx}>{feature}</li>
-                    ))}
-                  </ul>
+                  <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">
+                    Select
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -692,7 +692,7 @@ export default function Home() {
               <div className="mt-16 bg-white/80 backdrop-blur-md border border-blue-100 shadow-md rounded-xl p-6 sm:p-8 max-w-3xl mx-auto text-left">
                 <div className="flex items-center gap-3 mb-2">
                   <Settings2 className="w-5 h-5 text-blue-600" />
-                  <h3 className="text-xl font-semibold text-blue-800">🔧 One-Time Clean-Up</h3>
+                  <h3 className="text-xl font-semibold text-blue-800">One-Time Clean-Up</h3>
                 </div>
                 <p className="text-sm text-gray-600 mb-2">Starts at <strong>$500 USD</strong> (Flat rate or hourly, depending on scope)</p>
                 <p className="text-sm text-gray-600 mb-3">Books a mess? I&rsquo;ll clean them up.</p>
@@ -710,16 +710,16 @@ export default function Home() {
             <FadeInOnScroll>
               <div className="mt-12 text-center max-w-xl mx-auto">
                 <a href="#contact" className="group block text-blue-700 hover:text-blue-600 transition duration-300">
-                <MessageCircleMore className="w-6 h-6 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                <p className="text-sm sm:text-base">
-                  <strong>Not seeing what you need?</strong> <span className="underline">Let&rsquo;s build something custom</span>. Whether it&rsquo;s 10 hours a month, project-based, or scalable support—I&rsquo;ve got you.
-                </p>
-              </a>
+                  <MessageCircleMore className="w-6 h-6 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                  <p className="text-sm sm:text-base">
+                    <strong>Not seeing what you need?</strong> <span className="underline">Let&rsquo;s build something custom</span>. Whether it&rsquo;s 10 hours a month, project-based, or scalable support—I&rsquo;ve got you.
+                  </p>
+                </a>
               </div>
             </FadeInOnScroll>
           </div>
         </section>
-      </FadeInOnScroll>
+
 
       {/* Divider from Rates to Contact */}
       <div className="h-2 bg-gradient-to-b from-transparent to-white" />
