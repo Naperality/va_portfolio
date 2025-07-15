@@ -2,7 +2,9 @@
 
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { BarChart, 
+import { BarChart,
+        Building2,
+        Banknote, 
         CalendarCheck, 
         CreditCard, 
         FileText, 
@@ -13,7 +15,6 @@ import { BarChart,
         Mail, 
         Phone, 
         Laptop, 
-        Network,
         BadgeDollarSign, 
         Clock, 
         Settings2, 
@@ -22,6 +23,63 @@ import { BarChart,
         MessageCircleMore,
         GraduationCap
       } from 'lucide-react';
+
+const bulletVariants: Variants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
+
+
+const companies = [
+  {
+    icon: Building2,
+    company: 'AHOY CLUB YACHT & CHARTERS',
+    title: 'General Accountant',
+    date: 'March 2024 – Present | Sydney, Australia (remote)',
+    image: '/companies/ahoy.jpg',
+    bullets: [
+      'Maintained multi-entity books across AU, EU, US, ensuring 100% month-end closings.',
+      'Reduced month-end close cycle from 7 to 4 days via automation.',
+      'Processed payroll with full Fair Work and Super compliance.',
+      'Led quarterly BAS/IAS lodgments with zero penalties.',
+      'Improved executive report timelines by 3+ days.',
+    ],
+  },
+  {
+    icon: Briefcase,
+    company: 'TOA GLOBAL – FORTUNITY',
+    title: 'General Accountant',
+    date: 'Aug 2023 – Feb 2024 | Cebu City, PH (AU clients)',
+    image: '/companies/toa.webp',
+    bullets: [
+      'Completed 50+ year-end packs and tax returns with no revisions.',
+      'Filed BAS/FBT returns with 100% compliance.',
+      'Accelerated audit completion by 30% through strong prep.',
+      'Trained 2 junior team members and improved team efficiency.',
+    ],
+  },
+  {
+    icon: Banknote,
+    company: 'FINANCIAL FANATICS (GO GLOBAL)',
+    title: 'Junior Accountant / Bookkeeper',
+    date: 'Nov 2022 – Aug 2023 | Remote',
+    image: '/companies/financialfanatics.webp',
+    bullets: [
+      'Handled full-cycle bookkeeping for AU-based SMEs.',
+      'Reduced unreconciled items by 95% through weekly Xero updates.',
+      'Processed payroll & STP submissions via Deputy + Xero.',
+      'Improved AR collections & compliance reporting.',
+    ],
+  },
+];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -424,15 +482,13 @@ export default function Home() {
       {/* Divider from Tools to Portfolio */}
       <div className="h-4 bg-gradient-to-b from-transparent to-white" />
 
-      {/* Portfolio Section */}
       <section
         id="portfolio"
         className="relative py-24 px-6 bg-gradient-to-r from-yellow-50 via-white to-blue-50 text-center scroll-mt-28 overflow-hidden"
       >
-        {/* 🔵 Background Image (blurred & subtle) */}
         <div className="absolute inset-0 opacity-5">
           <Image
-            src="/portfolio-bg.jpg" // 🔄 Replace with your preferred background
+            src="/portfolio-bg.jpg"
             alt="Portfolio background"
             fill
             className="object-cover"
@@ -441,72 +497,60 @@ export default function Home() {
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <FadeInOnScroll>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">Experience & Highlights</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">
+              Experience & Highlights
+            </h2>
           </FadeInOnScroll>
 
           <FadeInOnScroll>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              I’ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
+            <p className="text-gray-600 mb-10 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+              I&rsquo;ve worked with clients across <strong>Australia</strong> and <strong>Southeast Asia</strong>, delivering full-cycle bookkeeping, payroll compliance, financial reporting, and digital automation for e-commerce and professional firms.
             </p>
           </FadeInOnScroll>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[
-              {
-                type: 'video',
-                src: '/shopify.mp4',
-                poster: '/portfolio2.webp',
-                title: 'Shopify & Stripe Integration',
-                desc: 'Automated reports & invoicing for a global e-store',
-              },
-              {
-                type: 'video',
-                src: '/xero.mp4',
-                poster: '/portfolio1.webp',
-                title: 'Xero & Deputy Payroll',
-                desc: 'Weekly payroll & compliance for an AU-based company',
-              },
-              {
-                type: 'image',
-                src: '/portfolio3.png',
-                title: 'Document Automation',
-                desc: 'Optimized Dext, FYI, and Hubdoc workflows',
-              },
-            ].map((item, index) => (
+          <div className="space-y-12 text-left">
+            {companies.map((exp, i) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.2,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                className="backdrop-blur-md bg-white/60 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition border border-gray-200"
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                className="bg-white/80 backdrop-blur-md border border-gray-200 shadow-md rounded-xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start"
               >
-                {item.type === 'video' ? (
-                  <video
-                    src={item.src}
-                    poster={item.poster}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-48 object-cover"
-                  />
-                ) : (
+                {/* Image */}
+                <div className="w-full md:w-1/3 h-48 relative rounded-md overflow-hidden shadow-sm">
                   <Image
-                    src={item.src}
-                    alt={item.title}
-                    width={400}
-                    height={240}
-                    className="w-full h-48 object-cover"
+                    src={exp.image}
+                    alt={exp.company}
+                    fill
+                    className="object-cover"
                   />
-                )}
-                <div className="p-4 text-left">
-                  <h4 className="font-semibold text-gray-800 mb-1">{item.title}</h4>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+
+                {/* Text */}
+                <div className="md:w-2/3 md:ml-6">
+                  <div className="flex items-center gap-2 mb-1">
+                    <exp.icon className="w-5 h-5 text-blue-700" />
+                    <h3 className="text-lg font-bold text-blue-800">{exp.company}</h3>
+                  </div>
+                  <p className="text-sm text-gray-500 italic mb-3">
+                    {exp.title} — {exp.date}
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-700">
+                    {exp.bullets.map((point, idx) => (
+                      <motion.li
+                        key={idx}
+                        custom={idx}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.4 }}
+                        variants={bulletVariants}
+                      >
+                        {point}
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -696,13 +740,13 @@ export default function Home() {
           <div className="text-center md:text-left">
             <FadeInOnScroll>
               <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
-                Let’s Connect
+                Let&rsquo;s Connect
               </h2>
             </FadeInOnScroll>
 
             <FadeInOnScroll>
               <p className="text-gray-700 mb-6 max-w-xl">
-                Ready to streamline your books or offload day-to-day admin tasks? Reach out and let’s discuss how I can support your business.
+                Ready to streamline your books or offload day-to-day admin tasks? Reach out and let&rsquo;s discuss how I can support your business.
               </p>
             </FadeInOnScroll>
 
