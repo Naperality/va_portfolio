@@ -10,7 +10,7 @@ export default function ThankYou() {
           Thank You!
         </h1>
         <p className="text-gray-600 mb-6">
-          Your message has been successfully sent. We'll be in touch shortly.
+          Your message has been successfully sent. We&rsquo;ll be in touch shortly.
         </p>
         <Link
           href="/"
