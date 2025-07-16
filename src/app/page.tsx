@@ -767,7 +767,7 @@ export default function Home() {
               >
                 Submit Request
               </button>
-              <input type="hidden" name="_next" value="https://rudicarm-visitacion-gustillo.vercel.app/thank-you" />
+              <input type="hidden" name="_next" value="https://rudicarm-visitacion-gustillo.vercel.app/thankyou_page" />
             </form>
           </div>
         </div>
