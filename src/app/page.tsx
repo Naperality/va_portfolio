@@ -730,7 +730,7 @@ export default function Home() {
 
             <h3 className="text-xl font-bold text-blue-700 mb-2">Request: {selectedPackage}</h3>
             <p className="text-sm text-gray-600 mb-4">
-              Fill in your details and we’ll get back to you shortly.
+              Fill in your details and we&rsquo;ll get back to you shortly.
             </p>
 
             <form
@@ -767,6 +767,7 @@ export default function Home() {
               >
                 Submit Request
               </button>
+              <input type="hidden" name="_next" value="https://rudicarm-visitacion-gustillo.vercel.app/thank-you" />
             </form>
           </div>
         </div>
