@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { BarChart,
         Building2,
@@ -30,7 +31,7 @@ const bulletVariants: Variants = {
     opacity: 1,
     x: 0,
     transition: {
-      delay: i * 0.1,
+      delay: i * 0.2,
       duration: 0.6,
       ease: 'easeOut',
     },
@@ -105,7 +106,19 @@ const FadeInOnScroll = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function Home() {
-  return (
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
+  const openModal = (pkgTitle: string) => {
+    setSelectedPackage(pkgTitle);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedPackage(null);
+    setIsModalOpen(false);
+  };
+    return (
     <main className="bg-white text-gray-800 scroll-smooth">
 
     {/* Hero Section */}
@@ -663,7 +676,10 @@ export default function Home() {
                       ))}
                     </ul>
                   </div>
-                  <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition">
+                  <button
+                    onClick={() => openModal(pkg.title)}
+                    className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition"
+                  >
                     Select
                   </button>
                 </motion.div>
@@ -702,7 +718,59 @@ export default function Home() {
             </FadeInOnScroll>
           </div>
         </section>
+        {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg relative animate-fade-in-up">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl"
+            >
+              ×
+            </button>
 
+            <h3 className="text-xl font-bold text-blue-700 mb-2">Request: {selectedPackage}</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Fill in your details and we’ll get back to you shortly.
+            </p>
+
+            <form
+              action="https://formsubmit.co/napolytan@gmail.com"
+              method="POST"
+              className="space-y-4"
+            >
+              <input type="hidden" name="Package Selected" value={selectedPackage ?? ''} />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              />
+              <textarea
+                name="message"
+                placeholder="Additional details or questions..."
+                rows={4}
+                className="w-full border border-gray-300 rounded px-3 py-2"
+              ></textarea>
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition"
+              >
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Divider from Rates to Contact */}
       <div className="h-2 bg-gradient-to-b from-transparent to-white" />
