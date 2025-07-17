@@ -766,7 +766,7 @@ export default function Home() {
             </p>
 
             <form
-              action="https://formsubmit.co/napolytan@gmail.com"
+              action="https://formsubmit.co/rudicarmvisitacion@gmail.com"
               method="POST"
               className="space-y-4"
             >
