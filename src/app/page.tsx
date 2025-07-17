@@ -22,7 +22,8 @@ import { BarChart,
         DollarSign, 
         Sparkles, 
         MessageCircleMore,
-        GraduationCap
+        GraduationCap,
+        Layers
       } from 'lucide-react';
 
 const bulletVariants: Variants = {
@@ -52,6 +53,21 @@ const companies = [
       'Processed payroll with full Fair Work and Super compliance.',
       'Led quarterly BAS/IAS lodgments with zero penalties.',
       'Improved executive report timelines by 3+ days.',
+    ],
+  },
+  {
+    icon: Layers,
+    company: 'CoLab APAC and Oceania',
+    title: 'General Accountant – CoLaB (Part Time)',
+    date: 'Dec 2024 – Present | Remote',
+    image: '/companies/Colab.webp',
+    bullets: [
+      'Manage full bookkeeping functions across multiple entities in APAC and Oceania.',
+      'Process payroll accurately and on schedule, ensuring compliance with local standards.',
+      'Prepare and lodge BAS and IAS for Australian entities, aligned with ATO guidelines.',
+      'Perform bank reconciliations and manage multiple bank feeds.',
+      'Collaborate daily with finance managers and assist with month-end closing, including journal entries, accruals, and variance checks.',
+      'Handle intercompany accounting and allocation of shared expenses across regions.'
     ],
   },
   {
@@ -107,10 +123,24 @@ const FadeInOnScroll = ({ children }: { children: React.ReactNode }) => (
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  // Define a type for clarity (optional but recommended)
+  type PackageType = {
+    title: string;
+    price: string;
+    hours: string;
+    features: string[];
+  };
 
-  const openModal = (pkgTitle: string) => {
-    setSelectedPackage(pkgTitle);
+  // Update your state definition
+  const [selectedPackage, setSelectedPackage] = useState<PackageType | null>(null);
+
+  const openModal = (pkg: {
+    title: string;
+    price: string;
+    hours: string;
+    features: string[];
+  }) => {
+    setSelectedPackage(pkg); // set this in your modal state
     setIsModalOpen(true);
   };
 
@@ -433,14 +463,9 @@ export default function Home() {
                 type: 'image',
               },
               {
-                title: 'Excel (Pivot Tables, Lookups)',
+                title: 'Excel and Google Sheets (Pivot Tables, Lookups)',
                 media: '/shopify.mp4',
                 type: 'video',
-              },
-              {
-                title: 'Google Sheets (Dashboards & Charts)',
-                media: '/tools/google-sheets.gif',
-                type: 'image',
               },
               {
                 title: 'Bank Feed Reconciliation (Airwallex, Wise, Stripe, Shopify)',
@@ -677,7 +702,7 @@ export default function Home() {
                     </ul>
                   </div>
                   <button
-                    onClick={() => openModal(pkg.title)}
+                    onClick={() => openModal(pkg)}
                     className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition"
                   >
                     Select
@@ -719,7 +744,7 @@ export default function Home() {
           </div>
         </section>
         {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 animate-fade-in-up animate-fade-out">
           <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg relative animate-fade-in-up">
             <button
               onClick={closeModal}
@@ -728,7 +753,14 @@ export default function Home() {
               ×
             </button>
 
-            <h3 className="text-xl font-bold text-blue-700 mb-2">Request: {selectedPackage}</h3>
+            <h3 className="text-xl font-bold text-blue-700 mb-2">{selectedPackage?.title}</h3>
+            <p className="text-sm text-gray-600 mb-1">{selectedPackage?.price}</p>
+            <p className="text-xs text-gray-500 mb-3">{selectedPackage?.hours}</p>
+            <ul className="list-disc list-inside text-sm text-gray-700 space-y-1 mb-4">
+              {selectedPackage?.features.map((feat, idx) => (
+                <li key={idx}>{feat}</li>
+              ))}
+            </ul>
             <p className="text-sm text-gray-600 mb-4">
               Fill in your details and we&rsquo;ll get back to you shortly.
             </p>
@@ -738,7 +770,17 @@ export default function Home() {
               method="POST"
               className="space-y-4"
             >
-              <input type="hidden" name="Package Selected" value={selectedPackage ?? ''} />
+              <input type="hidden" name="Package Selected" value={selectedPackage?.title} />
+
+              <input
+                type="hidden"
+                name="Selected Package Details"
+                value={
+                  selectedPackage
+                    ? `Package: ${selectedPackage.title}\nPrice: ${selectedPackage.price}\nHours: ${selectedPackage.hours}\nFeatures:\n- ${selectedPackage.features.join('\n- ')}`
+                    : ''
+                }
+              />
 
               <input
                 type="text"
