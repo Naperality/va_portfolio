@@ -2,7 +2,7 @@
 
 A clean, responsive, one-pager portfolio website built with **Next.js** and **TailwindCSS**, designed for a **Virtual Assistant** offering administrative, bookkeeping, and professional services.
 
-Live Site: [https://your-deployment-link.com](https://your-deployment-link.com)
+Live Site: [Virtual Assistant Website](https://rudicarm-visitacion-gustillo.vercel.app/)
 
 ---
 
